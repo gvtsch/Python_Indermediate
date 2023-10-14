@@ -1,0 +1,7 @@
+    Listen (Lists): Listen sind geordnete Sammlungen von Elementen, die veränderbar sind. Das bedeutet, dass Sie Elemente hinzufügen, entfernen oder ändern können. Listen werden in eckigen Klammern dargestellt, z.B. my_list = [1, 2, 3].
+
+    Tupel (Tuples): Tupel sind ähnlich wie Listen, aber sie sind unveränderlich, das bedeutet, dass ihre Elemente nach der Erstellung nicht mehr geändert werden können. Tupel werden in runden Klammern dargestellt, z.B. my_tuple = (1, 2, 3).
+
+    Mengen (Sets): Sets sind ungeordnete Sammlungen von eindeutigen Elementen. Sie werden oft verwendet, um eindeutige Werte zu speichern und ermöglichen keine Duplikate. Sets werden in geschweiften Klammern dargestellt, z.B. my_set = {1, 2, 3}.
+
+    Wörterbücher (Dictionaries): Wörterbücher sind Sammlungen von Schlüssel-Wert-Paaren, wobei jeder Schlüssel eindeutig ist. Sie ermöglichen den schnellen Zugriff auf Werte anhand ihrer Schlüssel. Wörterbücher werden in geschweiften Klammern mit Schlüssel-Wert-Paaren dargestellt, z.B. my_dict = {'Name': 'Max', 'Alter': 30}.
