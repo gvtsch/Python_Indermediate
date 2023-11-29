@@ -1,0 +1,10 @@
+setup.py
+C:/Users/gutsc/anaconda3/envs/tf_GPU/lib/site-packages/numba/cext/dictobject.c
+C:/Users/gutsc/anaconda3/envs/tf_GPU/lib/site-packages/numba/cext/listobject.c
+C:/Users/gutsc/anaconda3/envs/tf_GPU/lib/site-packages/numba/cext/utils.c
+C:/Users/gutsc/anaconda3/envs/tf_GPU/lib/site-packages/numba/pycc/modulemixin.c
+C:/Users/gutsc/anaconda3/envs/tf_GPU/lib/site-packages/numba/pycc/../core/runtime/nrt.cpp
+math_numba.egg-info/PKG-INFO
+math_numba.egg-info/SOURCES.txt
+math_numba.egg-info/dependency_links.txt
+math_numba.egg-info/top_level.txt

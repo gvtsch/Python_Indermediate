@@ -1,0 +1,152 @@
+def clip_vector(a, min_value, max_value):
+    a :: list
+    min_value, max_value :: float
+    r0 :: ptr
+    r1 :: native_int
+    r2 :: short_int
+    len_, r3, i :: int
+    r4 :: native_int
+    r5 :: bit
+    r6 :: native_int
+    r7, r8, r9 :: bit
+    r10 :: bool
+    r11 :: bit
+    r12 :: object
+    r13 :: float
+    r14, r15 :: bit
+    r16, r17 :: object
+    r18 :: bit
+    r19 :: object
+    r20 :: float
+    r21, r22 :: bit
+    r23, r24 :: object
+    r25 :: bit
+    r26 :: int
+    r27 :: list
+L0:
+    r0 = get_element_ptr a ob_size :: PyVarObject
+    r1 = load_mem r0 :: native_int*
+    r2 = r1 << 1
+    len_ = r2
+    r3 = 0
+    inc_ref r3 :: int
+    i = r3
+L1:
+    r4 = r3 & 1
+    r5 = r4 == 0
+    r6 = len_ & 1
+    r7 = r6 == 0
+    r8 = r5 & r7
+    if r8 goto L2 else goto L3 :: bool
+L2:
+    r9 = r3 < len_ :: signed
+    r10 = r9
+    goto L4
+L3:
+    r11 = CPyTagged_IsLt_(r3, len_)
+    r10 = r11
+L4:
+    if r10 goto L5 else goto L18 :: bool
+L5:
+    r12 = CPyList_GetItem(a, i)
+    if is_error(r12) goto L19 (error at clip_vector:8) else goto L6
+L6:
+    r13 = unbox(float, r12)
+    dec_ref r12
+    r14 = r13 == -113.0
+    if r14 goto L8 else goto L7 :: bool
+L7:
+    r15 = r13 < min_value
+    if r15 goto L9 else goto L10 :: bool
+L8:
+    r16 = PyErr_Occurred()
+    if not is_error(r16) goto L19 (error at clip_vector:8) else goto L7
+L9:
+    r17 = box(float, min_value)
+    r18 = CPyList_SetItem(a, i, r17)
+    dec_ref i :: int
+    if not r18 goto L20 (error at clip_vector:9) else goto L15 :: bool
+L10:
+    r19 = CPyList_GetItem(a, i)
+    if is_error(r19) goto L19 (error at clip_vector:10) else goto L11
+L11:
+    r20 = unbox(float, r19)
+    dec_ref r19
+    r21 = r20 == -113.0
+    if r21 goto L13 else goto L12 :: bool
+L12:
+    r22 = r20 > max_value
+    if r22 goto L14 else goto L21 :: bool
+L13:
+    r23 = PyErr_Occurred()
+    if not is_error(r23) goto L19 (error at clip_vector:10) else goto L12
+L14:
+    r24 = box(float, max_value)
+    r25 = CPyList_SetItem(a, i, r24)
+    dec_ref i :: int
+    if not r25 goto L20 (error at clip_vector:11) else goto L15 :: bool
+L15:
+    r26 = CPyTagged_Add(r3, 2)
+    dec_ref r3 :: int
+    inc_ref r26 :: int
+    r3 = r26
+    i = r26
+    goto L1
+L16:
+    inc_ref a
+    return a
+L17:
+    r27 = <error> :: list
+    return r27
+L18:
+    dec_ref len_ :: int
+    dec_ref r3 :: int
+    dec_ref i :: int
+    goto L16
+L19:
+    dec_ref len_ :: int
+    dec_ref r3 :: int
+    dec_ref i :: int
+    goto L17
+L20:
+    dec_ref len_ :: int
+    dec_ref r3 :: int
+    goto L17
+L21:
+    dec_ref i :: int
+    goto L15
+
+def __top_level__():
+    r0, r1 :: object
+    r2 :: bit
+    r3 :: str
+    r4, r5 :: object
+    r6 :: str
+    r7 :: dict
+    r8 :: object
+    r9 :: None
+L0:
+    r0 = builtins :: module
+    r1 = load_address _Py_NoneStruct
+    r2 = r0 != r1
+    if r2 goto L3 else goto L1 :: bool
+L1:
+    r3 = 'builtins'
+    r4 = PyImport_Import(r3)
+    if is_error(r4) goto L5 (error at <module>:-1) else goto L2
+L2:
+    builtins = r4 :: module
+    dec_ref r4
+L3:
+    r5 = ('List',)
+    r6 = 'typing'
+    r7 = math_mypyc.globals :: static
+    r8 = CPyImport_ImportFromMany(r6, r5, r5, r7)
+    if is_error(r8) goto L5 (error at <module>:1) else goto L4
+L4:
+    typing = r8 :: module
+    dec_ref r8
+    return 1
+L5:
+    r9 = <error> :: None
+    return r9

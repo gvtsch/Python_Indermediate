@@ -1,0 +1,6 @@
+setup.py
+math_mypyc/__init__.py
+math_mypyc.egg-info/PKG-INFO
+math_mypyc.egg-info/SOURCES.txt
+math_mypyc.egg-info/dependency_links.txt
+math_mypyc.egg-info/top_level.txt
