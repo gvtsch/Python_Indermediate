@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+math_cpython/clip.c
+math_cpython.egg-info/PKG-INFO
+math_cpython.egg-info/SOURCES.txt
+math_cpython.egg-info/dependency_links.txt
+math_cpython.egg-info/top_level.txt
